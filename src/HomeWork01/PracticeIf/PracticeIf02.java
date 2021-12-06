@@ -18,6 +18,7 @@ public class PracticeIf02 {
             System.out.println("입력하신 숫자는 7의 배수입니다.");
         }else {
             System.out.println("입력하신 숫자는 7의 배수가 아닙니다.");
+
         }
     }
 }

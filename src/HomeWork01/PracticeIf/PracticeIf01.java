@@ -13,6 +13,7 @@ public class PracticeIf01 {
         System.out.print("나이: ");
         int age = sc.nextInt();
 
+
         sc.close();
 
         if (height >= 140 & age >= 8){
