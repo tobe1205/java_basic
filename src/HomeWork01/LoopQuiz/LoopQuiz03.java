@@ -1,4 +1,4 @@
-package LoopQuiz;
+package HomeWork01.LoopQuiz;
 
 import java.util.Scanner;
 

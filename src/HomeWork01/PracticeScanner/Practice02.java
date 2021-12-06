@@ -1,4 +1,4 @@
-package PracticeScanner;
+package HomeWork01.PracticeScanner;
 
 import java.util.Scanner;
 

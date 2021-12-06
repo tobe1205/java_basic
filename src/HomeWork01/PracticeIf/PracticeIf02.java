@@ -1,4 +1,4 @@
-package PracticeIf;
+package HomeWork01.PracticeIf;
 
 import java.util.Scanner;
 

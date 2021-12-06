@@ -1,4 +1,4 @@
-package PracticeWhile;
+package HomeWork01.PracticeWhile;
 
 import java.util.Scanner;
 
