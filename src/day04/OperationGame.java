@@ -91,5 +91,6 @@ public class OperationGame {
         System.out.println("========================");
         System.out.printf("정답횟수: %d회, 틀린횟수: %d회",ok,no);
         sc.close();
-        }
-    }
+
+        } // end main
+    } // end class
