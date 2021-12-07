@@ -1,5 +1,6 @@
 package day05;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class ArrayPushQuiz {
@@ -10,21 +11,32 @@ public class ArrayPushQuiz {
         // ex) if (s1 == s2) (x)
         //     if(s1.equals(s2)) (o)
 
-        String[] foods;
-
-        foods = new String[2];
-
-        String newData = null;
+        System.out.println("# 먹고 싶은 음식을 입력하세요!!");
+        System.out.println("# 입력을 중지하려면 <그만>이라고 입력하세요.");
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("# 먹고 싶은 음식을 입력하세요!!");
-        System.out.println("# 입력을 중지하려면 <그만>이라고 입력하세요.");
+        String[] foodList = {};
+
         while(true) {
+
             System.out.print(">> ");
-            String name = sc.nextLine();
+            String newFood = sc.nextLine();
 
+            if (newFood.equals("그만")) {
+                break;
+            }
 
-    }
+            String[] temp = new String[foodList.length + 1];
+
+            for (int i = 0; i < foodList.length; i++) {
+                temp[i] = foodList[i];
+            }
+            temp[temp.length - 1] = newFood;
+            foodList = temp;
+            temp = null;
+        }
+            System.out.println("먹고싶은 음식: " + Arrays.toString(foodList));
+            sc.close();
     }
 }
