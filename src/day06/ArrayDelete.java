@@ -11,7 +11,7 @@ public class ArrayDelete {
 
         System.out.println("삭제 전: " + Arrays.toString(arr));
 
-        int delIdx = 2;
+        int delIdx = 3;
 
         for (int i = delIdx; i < arr.length-1; i++) {
             arr[i] = arr[i+1];
