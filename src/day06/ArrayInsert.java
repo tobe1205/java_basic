@@ -22,6 +22,7 @@ public class ArrayInsert {
             temp[i] = temp[i-1];
         }
         temp[targetIndex] = newNumber;
+        arr = temp; temp = null;
 
         System.out.println("추가 후: " + Arrays.toString(arr));
     }
