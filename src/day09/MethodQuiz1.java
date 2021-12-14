@@ -6,7 +6,6 @@ import java.util.List;
 
 public class MethodQuiz1 {
 
-
     static String[] foods = {"치킨", "파스타", "짬뽕"};
 
     //foods배열에 새로운 데이터를 끝에 추가하는 함수
@@ -76,7 +75,6 @@ public class MethodQuiz1 {
         }
         temp[targetIndex] = changeName;
         foods = temp;
-        temp = null;
     }
 
     static void clear(){
@@ -121,7 +119,7 @@ public class MethodQuiz1 {
         System.out.println("===============================");
 
         remove("볶음밥");
-        System.out.println(Arrays.toString(foods));// foods배열에서 볶음밥 제거
+        printArray(foods);// foods배열에서 볶음밥 제거
         remove("망고"); // 존재하지 않는 음식명입니다 출력.
 //        System.out.println(Arrays.toString(foods));// foods배열에서 볶음밥 제거
 
@@ -134,5 +132,9 @@ public class MethodQuiz1 {
 
         boolean flag = include("파스타"); // 파스타 발견시 true 리턴
         System.out.println(flag);
+    }
+
+    private static void printArray(String[] foods) {
+        System.out.println(Arrays.toString(MethodQuiz1.foods));
     }
 }
