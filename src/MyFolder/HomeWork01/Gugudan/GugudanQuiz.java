@@ -1,4 +1,4 @@
-package HomeWork01.Gugudan;
+package MyFolder.HomeWork01.Gugudan;
 
 public class GugudanQuiz {
 

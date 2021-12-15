@@ -1,4 +1,4 @@
-package HomeWork01.PracticeIf;
+package MyFolder.HomeWork01.PracticeIf;
 
 import java.util.Scanner;
 

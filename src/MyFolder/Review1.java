@@ -1,4 +1,4 @@
-package HomeWork01;
+package MyFolder;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package HomeWork01.ForQuiz;
+package MyFolder.HomeWork01.ForQuiz;
 
 public class ForQuiz1 {
 

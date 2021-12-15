@@ -1,7 +1,8 @@
-package HomeWork01;
+package MyFolder;
 
 
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Scanner;
 
@@ -18,7 +19,8 @@ public class login {
 
     /*static String[] empNames = {};
     static String[] empNumbers = {};
-    static String[] empPosition = {};*/
+    static String[] empPosition = {};
+    static String[] empPassWord = {};*/
 
     //로그인 전 메뉴선택
     static int inputInt() {
@@ -45,8 +47,9 @@ public class login {
         System.out.print(s);
         return sc.nextLine();
     }
+
     //2.직원등록 - 이름 입력
-    static void inputName(){
+    static void inputName() {
         String name = inputString("이름: ");
         String[] temp = new String[empNames.length + 1];
         for (int i = 0; i < empNames.length; i++) {
@@ -56,7 +59,40 @@ public class login {
         empNames = temp;
 
     }
-//2.직원등록 - 사원번호 입력
+
+    //2. 회원가입 - 패스워드 입력
+    static void inputPassWord() {
+        while (true) {
+            String pw = inputString("비밀번호: ");
+            int index = -1;
+
+            for (int i = 0; i < empPassWord.length; i++) {
+                if (pw.equals(empPassWord[i])) {
+                    index = i;
+                    break;
+                }
+            }
+            if (index == -1) {
+                if (pw.length() > 8 | pw.length() < 4) {
+                    System.out.println("비밀번호는 4 ~ 8자리로 입력해주세요.");
+
+                } else {
+                    String[] temp4 = new String[empPassWord.length + 1];
+                    for (int i = 0; i < empPassWord.length; i++) {
+                        temp4[i] = empPassWord[i];
+                    }
+                    temp4[temp4.length - 1] = pw;
+                    empPassWord = temp4;
+                    temp4 = null;
+                    break;
+                }
+            } else {
+                System.out.println("등록된 사원 번호입니다.");
+            }
+        }
+    }
+
+    //2.직원등록 - 사원번호 입력
     static void inputNum() {
         while (true) {
             String num = inputString("사원 번호: ");
@@ -79,7 +115,6 @@ public class login {
                     }
                     temp2[temp2.length - 1] = num;
                     empNumbers = temp2;
-                    temp2 = null;
                     break;
                 }
             } else {
@@ -88,7 +123,8 @@ public class login {
         }
     }
 
-    static void inputPosition(){
+    //2. 회원가입 - 직책 입력
+    static void inputPosition() {
         String position = inputString("직책: ");
         String[] temp3 = new String[empPosition.length + 1];
         for (int i = 0; i < empPosition.length; i++) {
@@ -99,37 +135,12 @@ public class login {
         temp3 = null;
     }
 
-    static void inputPassWord() {
-        while (true) {
-            String pw = inputString("비밀번호: ");
-            int index = -1;
-
-            for (int i = 0; i < empPassWord.length; i++) {
-                if (pw.equals(empPassWord[i])) {
-                    index = i;
-                    break;
-                }
-            }
-            if (index == -1) {
-                if (pw.length() > 8 | pw.length() < 4) {
-                    System.out.println("비밀번호는 4 ~ 8자리로 입력해주세요.");
-
-                } else {
-                    String [] temp4 = new String[empPassWord.length +1];
-                    for (int i = 0; i < empPassWord.length; i++) {
-                        temp4[i] = empPassWord[i];
-                    }
-                    temp4[temp4.length -1] = pw;
-                    empPassWord = temp4;
-                    temp4 = null;
-                    break;
-                }
-            } else {
-                System.out.println("등록된 사원 번호입니다.");
-            }
+    //현재 로그인정보 ( [사원번호] [직책] [이름] )
+    static void nowLogin() {
+        for (int i = 0; i < curLoginUserInfo.length; i++) {
+            System.out.printf("\n* [%s] || [%s] || [%s]님이 현재 로그인 중입니다.", empNumbers[i], empPosition[i], empNames[i]);
         }
     }
-
 
     //로그인하기
     static boolean Login() {
@@ -205,6 +216,21 @@ public class login {
         System.out.println("5. 프로그램 종료");
         System.out.print("=> ");
     }
+
+    //3. 직원목록 전체 보기 [이름, 사번, 직책]
+    static void totalList() {
+        if (empNames.length < 1) {
+            System.out.println("* 등록된 사원이 없습니다.");
+            System.out.println("* 사원 등록 후 조회해주시기 바랍니다.");
+        } else {
+            System.out.println("--------------- 직원 목록 ---------------");
+            for (int i = 0; i < empNames.length; i++) {
+                System.out.printf("* [이름]  %s | [사번]  %s | [직책]  %s\n", empNames[i], empNumbers[i], empPosition[i]);
+            }
+            System.out.println("----------------------------------------");
+        }
+    }
+
     //프로그램 종료
     static void exit() {
         System.out.println("프로그램을 종료하시겠습니까? [Y/N]");
@@ -215,11 +241,12 @@ public class login {
         }
     }
 
+    // 전역변수으로 페이지 변경
     static boolean loginStatus = false;
 
     public static void main(String[] args) {
-        while(true) {
-            if (loginStatus == false) {
+        while (true) {
+            if (!loginStatus) {
                 firstMenu();
                 int choice1 = inputInt();
                 switch (choice1) {
@@ -227,9 +254,13 @@ public class login {
                         Login();
                         break;
                     case 2:
-
+                        inputName();
+                        inputPassWord();
+                        inputNum();
+                        inputPosition();
                         break;
                     case 3:
+                        totalList();
                         break;
                     case 4:
                         exit();

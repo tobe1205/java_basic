@@ -1,3 +1,5 @@
+package MyFolder;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -81,7 +83,7 @@ public class Management {
 
 
     public static void main(String[] args) {
-        // Management 객체 생성
+        // MyFolder.Management 객체 생성
         Management m =new Management();
 
         while(true) {
