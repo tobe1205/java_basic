@@ -18,6 +18,7 @@ public class Project01 {
     static String[] checkinTime = {};
     static String[] checkoutTime = {};
 
+
    /* static String[] empNames = {};
     static String[] empNumbers = {};
     static String[] empPosition = {};
