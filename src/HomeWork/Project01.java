@@ -18,6 +18,19 @@ public class Project01 {
     static String[] checkinTime = {};
     static String[] checkoutTime = {};
 
+    /*static String[][] checkinTime = {
+            {"2021-12-15 08:55:26", "2021-12-16 08:58:13"},
+            {"2021-12-15 08:59:56", "2021-12-16 08:59:16"},
+            {"2021-12-15 08:55:55", "2021-12-16 08:57:56"}
+    };
+    static String[][] checkoutTime = {
+            {"2021-12-15 18:02:56", "2021-12-16 18:01:03"},
+            {"2021-12-15 18:10:11", "2021-12-16 18:10:01"},
+            {"2021-12-15 18:01:07", "2021-12-16 18:07:56"}
+    };*/
+
+//    static String[][] array = new String[empNumbers[0]][checkinTime[0]];
+
 
    /* static String[] empNames = {};
     static String[] empNumbers = {};
@@ -76,9 +89,9 @@ public class Project01 {
                     curLoginUserInfo[1] = empPosition[index];
                     curLoginUserInfo[2] = empNames[index];
 //                    System.out.println(Arrays.toString(curLoginUserInfo));
-                    loginStatus = true;
                     System.out.println("\n==========[로그인 성공]==========");
                     date();// 첫 로그인 시점에만 로그인 성공과 시간 출력
+                    loginStatus = true;
                     return loginStatus;
                 } else {
                     System.out.println("\n사번과 비밀번호가 일치하지 않습니다.");
