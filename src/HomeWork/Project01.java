@@ -18,6 +18,19 @@ public class Project01 {
     /*static String[] checkinTime = {};
     static String[] checkoutTime = {};*/
 
+    /*static String[][] checkinTime = {
+            {"2021-12-15 08:55:26", "2021-12-16 08:58:13"},
+            {"2021-12-15 08:59:56", "2021-12-16 08:59:16"},
+            {"2021-12-15 08:55:55", "2021-12-16 08:57:56"}
+    };
+    static String[][] checkoutTime = {
+            {"2021-12-15 18:02:56", "2021-12-16 18:01:03"},
+            {"2021-12-15 18:10:11", "2021-12-16 18:10:01"},
+            {"2021-12-15 18:01:07", "2021-12-16 18:07:56"}
+    };*/
+
+//    static String[][] array = new String[empNumbers[0]][checkinTime[0]];
+
 
     static String[] empNames = {};
     static String[] empNumbers = {};
