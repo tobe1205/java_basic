@@ -11,33 +11,17 @@ public class Project01 {
     static String[] curLoginUserInfo = new String[3];
 
     //직원 인적사항 저장 배열 (이름, 사원번호,직책, 비밀번호)
-    /*static String[] empNames = {"aaa", "aaa", "bbb"};
+    static String[] empNames = {"aaa", "aaa", "bbb"};
     static String[] empNumbers = {"0000", "0001", "0002"};
     static String[] empPosition = {"사원", "대리", "과장"};
-    static String[] empPassWord = {"bbb", "bbb", "ghi"};*/
-    /*static String[] checkinTime = {};
-    static String[] checkoutTime = {};*/
-
-    /*static String[][] checkinTime = {
-            {"2021-12-15 08:55:26", "2021-12-16 08:58:13"},
-            {"2021-12-15 08:59:56", "2021-12-16 08:59:16"},
-            {"2021-12-15 08:55:55", "2021-12-16 08:57:56"}
-    };
-    static String[][] checkoutTime = {
-            {"2021-12-15 18:02:56", "2021-12-16 18:01:03"},
-            {"2021-12-15 18:10:11", "2021-12-16 18:10:01"},
-            {"2021-12-15 18:01:07", "2021-12-16 18:07:56"}
-    };*/
-
-//    static String[][] array = new String[empNumbers[0]][checkinTime[0]];
-
-
-    static String[] empNames = {};
-    static String[] empNumbers = {};
-    static String[] empPosition = {};
-    static String[] empPassWord = {};
+    static String[] empPassWord = {"bbb", "bbb", "ghi"};
     static String[] checkinTime = {};
     static String[] checkoutTime = {};
+
+/*    static String[] empNames = {};
+    static String[] empNumbers = {};
+    static String[] empPosition = {};
+    static String[] empPassWord = {};*/
 
 
     //첫 화면 메뉴
