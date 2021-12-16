@@ -11,18 +11,20 @@ public class Project01 {
     static String[] curLoginUserInfo = new String[3];
 
     //직원 인적사항 저장 배열 (이름, 사원번호,직책, 비밀번호)
-    static String[] empNames = {"aaa", "aaa", "bbb"};
+    /*static String[] empNames = {"aaa", "aaa", "bbb"};
     static String[] empNumbers = {"0000", "0001", "0002"};
     static String[] empPosition = {"사원", "대리", "과장"};
-    static String[] empPassWord = {"bbb", "bbb", "ghi"};
-    static String[] checkinTime = {};
-    static String[] checkoutTime = {};
+    static String[] empPassWord = {"bbb", "bbb", "ghi"};*/
+    /*static String[] checkinTime = {};
+    static String[] checkoutTime = {};*/
 
 
-   /* static String[] empNames = {};
+    static String[] empNames = {};
     static String[] empNumbers = {};
     static String[] empPosition = {};
-    static String[] empPassWord = {};*/
+    static String[] empPassWord = {};
+    static String[] checkinTime = {};
+    static String[] checkoutTime = {};
 
 
     //첫 화면 메뉴
@@ -76,9 +78,9 @@ public class Project01 {
                     curLoginUserInfo[1] = empPosition[index];
                     curLoginUserInfo[2] = empNames[index];
 //                    System.out.println(Arrays.toString(curLoginUserInfo));
-                    loginStatus = true;
                     System.out.println("\n==========[로그인 성공]==========");
                     date();// 첫 로그인 시점에만 로그인 성공과 시간 출력
+                    loginStatus = true;
                     return loginStatus;
                 } else {
                     System.out.println("\n사번과 비밀번호가 일치하지 않습니다.");
