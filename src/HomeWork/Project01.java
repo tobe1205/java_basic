@@ -2,7 +2,6 @@ package HomeWork;
 
 
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Scanner;
 
@@ -12,17 +11,17 @@ public class Project01 {
     static String[] curLoginUserInfo = new String[3];
 
     //직원 인적사항 저장 배열 (이름, 사원번호,직책, 비밀번호)
-    /*static String[] empNames = {"kgw", "aaa", "bbb"};
+    static String[] empNames = {"aaa", "aaa", "bbb"};
     static String[] empNumbers = {"0000", "0001", "0002"};
     static String[] empPosition = {"사원", "대리", "과장"};
-    static String[] empPassWord = {"abc", "def", "ghi"};*/
-    static String[] cheakinTime = {};
-    static String[] cheakoutTime = {};
+    static String[] empPassWord = {"bbb", "bbb", "ghi"};
+    static String[] checkinTime = {};
+    static String[] checkoutTime = {};
 
-    static String[] empNames = {};
+   /* static String[] empNames = {};
     static String[] empNumbers = {};
     static String[] empPosition = {};
-    static String[] empPassWord = {};
+    static String[] empPassWord = {};*/
 
 
     //첫 화면 메뉴
@@ -37,7 +36,7 @@ public class Project01 {
     //로그인 전 메뉴선택
     static int inputInt() {
         int n = sc.nextInt();
-        if (n > 4 || n <= 0) {
+        if (n > 3 || n <= 0) {
             System.out.println("1 ~ 3사이로 입력해주세요.");
         }
         sc.nextLine();
@@ -51,36 +50,26 @@ public class Project01 {
     }
 
     //로그인하기
-    static void Login() {
+    static boolean Login() {
         while (true) {
-            String nameCheck = inputString("이름: ");
+            String nameCheck = inputString("사번: ");
             int index = -1;
-            for (int i = 0; i < empNames.length; i++) {
-                if (nameCheck.equals(empNames[i])) {
+            for (int i = 0; i < empNumbers.length; i++) {
+                if (nameCheck.equals(empNumbers[i])) {
                     index = i;
                     break;
                 }
             }
+//            System.out.println(index);
             if (index == -1) {
                 System.out.println("\n등록되지 않은 정보입니다.");
                 System.out.println("초기메뉴에서 직원등록을 먼저 해주세요.");
                 System.out.println("이전 화면으로 돌아가시려면 Enter를 눌러주세요.");
                 sc.nextLine();
-                return;
+                return false;
             } else {
                 String pwCheck = inputString("비밀번호: ");
-                index = -1;
-                for (int i = 0; i < empPassWord.length; i++) {
-                    if (pwCheck.equals(empPassWord[i])) {
-                        index = i;
-                        break;
-                    }
-                }
-
-                if (index == -1) {
-                    System.out.println("\n이름과 비밀번호가 일치하지 않습니다.");
-                    System.out.println("다시 입력해주세요.");
-                } else {
+                if (pwCheck.equals(empPassWord[index])) {
                     //현재 로그인한 사람 정보 저장 시점
                     curLoginUserInfo[0] = empNumbers[index];
                     curLoginUserInfo[1] = empPosition[index];
@@ -89,8 +78,13 @@ public class Project01 {
                     loginStatus = true;
                     System.out.println("\n==========[로그인 성공]==========");
                     date();// 첫 로그인 시점에만 로그인 성공과 시간 출력
-                    return;
+                    return loginStatus;
+                } else {
+                    System.out.println("\n사번과 비밀번호가 일치하지 않습니다.");
+                    System.out.println("다시 입력해주세요.");
+                    return loginStatus;
                 }
+
             }
         }
     }
@@ -203,29 +197,51 @@ public class Project01 {
 
     static Scanner sc = new Scanner(System.in);
 
+// 체크인
+    static void checkin(){
+        SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); // 출력 모양
+        Calendar cal = Calendar.getInstance();
+        String format_time = format1.format(cal.getTime());
+
+        String[] temp5 = new String[checkinTime.length + 1];
+
+        for (int i = 0; i < checkinTime.length; i++) {
+            temp5[i] = checkinTime[i];
+        }
+        temp5[temp5.length - 1] = format_time;
+        checkinTime = temp5;
+        temp5 = null;
+
+    }
     //퇴근하기
-    static void cheakout() {
+    static void checkout() {
         SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); // 출력 모양
         Calendar cal = Calendar.getInstance();
         String format_time2 = format1.format(cal.getTime());
 
-        String[] temp6 = new String[cheakoutTime.length + 1];
+        String[] temp6 = new String[checkoutTime.length + 1];
 
-        for (int i = 0; i < cheakoutTime.length; i++) {
-            temp6[i] = cheakoutTime[i];
+        for (int i = 0; i < checkoutTime.length; i++) {
+            temp6[i] = checkoutTime[i];
         }
         temp6[temp6.length - 1] = format_time2;
-        cheakoutTime = temp6;
+        checkoutTime = temp6;
 
-        System.out.println("----------------------------------------------------");
-        System.out.printf("%s님 %s 퇴근이 확인되었습니다..\n", curLoginUserInfo[2], cheakoutTime[0]);
-        System.out.println("----------------------------------------------------");
-        System.out.println("로그아웃 하시겠습니까? [Y / N]");
-        String yesNo = sc.nextLine();
-        if (yesNo.equals("y") || yesNo.equals("Y")) {
-            logOut();
+        if (Number == 1) {
+            System.out.println("----------------------------------------------------");
+            System.out.printf("%s님 %s 퇴근이 확인되었습니다..\n", curLoginUserInfo[2], checkoutTime[0]);
+            System.out.println("----------------------------------------------------");
+            System.out.println("로그아웃 하시겠습니까? [Y / N]");
+            String yesNo = sc.nextLine();
+            if (yesNo.equals("y") || yesNo.equals("Y")) {
+                logOut();
+            }
+        } else {
+            System.out.println("출근이 확인되지 않습니다.");
+            System.out.println("출근하기를 먼저 해주세요.");
+            System.out.println("이전 화면으로 돌아가시려면 Enter를 눌러주세요.");
+            sc.nextLine();
         }
-
     }
 
     //로그인 후 현재시간
@@ -239,14 +255,6 @@ public class Project01 {
 //        int min = cal.get(Calendar.MINUTE);
 //        int sec = cal.get(Calendar.SECOND);
 
-        String[] temp5 = new String[cheakinTime.length + 1];
-
-        for (int i = 0; i < cheakinTime.length; i++) {
-            temp5[i] = cheakinTime[i];
-        }
-        temp5[temp5.length - 1] = format_time;
-        cheakinTime = temp5;
-        temp5 = null;
     }
 
     //로그인 후 메뉴
@@ -272,20 +280,23 @@ public class Project01 {
         return n;
     }
 
+    static int Number = -1;
+
     //출근하기
-    static void workCheak() {
+    static void workCheck() {
         System.out.println("----------------------------------------------------");
-        System.out.printf("%s님 %s 출근이 확인되었습니다..\n", curLoginUserInfo[2], cheakinTime[0]);
+        System.out.printf("%s님 %s 출근이 확인되었습니다..\n", curLoginUserInfo[2], checkinTime[0]);
         System.out.println("----------------------------------------------------");
         System.out.println("이전 화면으로 돌아가시려면 Enter를 눌러주세요.");
         sc.nextLine();
+        Number = 1;
 
     }
 
     //현재 로그인정보 ( [사원번호] [직책] [이름] )
     static void nowLogin() {
         System.out.println("--------------------------------------------------------------");
-        System.out.printf("* [이름]  %s | [사번]  %s | [직책]  %s 님으로 로그인 중입니다.\n", curLoginUserInfo[2], curLoginUserInfo[0], curLoginUserInfo[1]);
+        System.out.printf("* [사번]  %s | [직책]  %s | [이름]  %s 님으로 로그인 중입니다.\n", curLoginUserInfo[0], curLoginUserInfo[1], curLoginUserInfo[2]);
         System.out.println("--------------------------------------------------------------");
         System.out.println("이전 화면으로 돌아가시려면 Enter를 눌러주세요.");
         sc.nextLine();
@@ -341,6 +352,7 @@ public class Project01 {
 
     //로그아웃
     static void logOut() {
+        System.out.println();
         System.out.println("로그아웃 되었습니다.");
         loginStatus = false;
     }
@@ -372,10 +384,10 @@ public class Project01 {
                 int choice2 = inputInt2();
                 switch (choice2) {
                     case 1: // 출근하기
-                        workCheak();
+                        workCheck();
                         break;
                     case 2: // 퇴근하기
-                        cheakout();
+                        checkout();
                         break;
                     case 3: // 출근자 확인
                         nowLogin();
