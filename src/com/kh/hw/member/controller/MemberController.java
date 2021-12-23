@@ -164,7 +164,7 @@ public class MemberController {
     }
 
     //회원정보 하나를 삭제하는 메서드
-    public boolean delete(String id) {
+    public boolean deleteOne(String id) {
         int index = findIndexById(id);
 
         if (index != -1) {
@@ -180,7 +180,7 @@ public class MemberController {
     }
 
     //회원정보 전체 삭제
-    public void delete(){
+    public void deleteAll(){
         int count = existMemberNum();
         for (int i = 0; i < count; i++) {
             m[i] = null;

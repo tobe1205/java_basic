@@ -16,13 +16,11 @@ public class MemberMenu {
 
         while (true) {
             int count = mc.existMemberNum();
-
             System.out.printf("\n# 최대 등록 가능한 회원 수는 %d명입니다.\n", mc.SIZE);
             System.out.printf("# 현재 등록된 회원 수는 %d명입니다.\n", count);
             if (count >= mc.SIZE) {
                 System.out.println("# 회원 수가 모두 꽉 찼기 때문에 일부 메뉴만 오픈됩니다.");
             }
-
             if (count < mc.SIZE) {
                 System.out.println("# 1. 새 회원 등록");
             }
@@ -139,7 +137,7 @@ public class MemberMenu {
                 searchId();
                 break;
             case 2:
-                searchName();
+//                searchName();
                 break;
             case 3:
                 searchEmail();
@@ -206,6 +204,7 @@ public class MemberMenu {
         switch (menu) {
             case 1:
                 updatePassword();
+                break;
             case 2:
                 updateName();
                 break;
@@ -252,7 +251,7 @@ public class MemberMenu {
         mc.updateEmail(id, newEmail);
     }
 
-    // 회원 삭제 함수
+    //4번 메뉴 처리 - 회원 삭제 메뉴 함수
     private void deleteMember() {
         System.out.println("1. 특정 회원 삭제하기");
         System.out.println("2. 모든 회원 삭제하기");
@@ -264,6 +263,7 @@ public class MemberMenu {
                 deleteOne();
                 break;
             case 2:
+                deleteAll();
                 break;
             case 9:
                 System.out.println("메인으로 돌아갑니다.");
@@ -275,10 +275,33 @@ public class MemberMenu {
 
     }
 
+    private void deleteAll() {
+        System.out.println("정말 삭제하시겠습니까? Y/N");
+        char choice = sc.next().toUpperCase().charAt(0);
+
+        if (choice == 'Y'|| choice =='y'){
+            mc.deleteAll();
+            System.out.println("성공적으로 삭제하였습니다.");
+        }
+
+    }
+
+    //특정 회원 삭제 함수
     public void deleteOne() {
-        System.out.println("삭제할 회원의 아이디 : ");
+        System.out.print("삭제할 회원의 아이디 : ");
         String id = sc.next();
 
+        if (mc.checkId(id)){
+            System.out.println("정말 삭제하시겠습니까? Y/N");
+            char choice = sc.next().toUpperCase().charAt(0);
+
+            if (choice == 'Y'|| choice =='y'){
+                mc.deleteOne(id);
+                System.out.println("성공적으로 삭제하였습니다.");
+            }
+        } else {
+            System.out.println("존재하지 않는 아이디입니다.");
+        }
 
     }
 

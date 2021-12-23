@@ -28,7 +28,7 @@ public class Test {
         System.out.println(member.inform());*/
 
 
-        mc.delete();
+        mc.deleteAll();
 
 
 
