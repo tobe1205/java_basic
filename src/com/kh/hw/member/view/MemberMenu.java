@@ -29,7 +29,7 @@ public class MemberMenu {
             System.out.println("# 5. 모두 출력");
             System.out.println("# 9. 끝내기");
 
-            System.out.printf("\n# 메뉴 번호: ");
+            System.out.print("\n# 메뉴 번호: ");
             int menu = sc.nextInt();
 
             switch (menu) {
@@ -37,6 +37,7 @@ public class MemberMenu {
                     insertMember();
                     break;
                 case 2:
+                    searchMember();
                     break;
                 case 3:
                     break;
@@ -55,6 +56,28 @@ public class MemberMenu {
         }
     }
 
+    private void searchMember() {
+        System.out.println("1. 아이디로 검색하기");
+        System.out.println("2. 이름으로 검색하기");
+        System.out.println("3. 이메일로 검색하기");
+        System.out.println("9. 메인으로 돌아가기");
+        System.out.print("\n# 메뉴 번호: ");
+        int menu = sc.nextInt();
+
+        switch (menu) {
+            case 1:
+
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 9:
+                break;
+
+        }
+    }
+
     //1번메뉴 처리
     public void insertMember() {
         System.out.println("\n# 새 회원을 등록합니다.");
@@ -62,16 +85,16 @@ public class MemberMenu {
         String id = inputId();
         if (id == null) return;
 
-        System.out.printf("- 이름: ");
+        System.out.print("- 이름: ");
         String name = sc.next();
-        System.out.printf("- 비밀번호: ");
+        System.out.print("- 비밀번호: ");
         String password = sc.next();
-        System.out.printf("- 이메일: ");
+        System.out.print("- 이메일: ");
         String email = sc.next();
 
         char gender = inputGender();
 
-        System.out.printf("- 나이: ");
+        System.out.print("- 나이: ");
         int age = sc.nextInt();
 
         mc.insertMember(id,name,password,email,gender,age);
@@ -88,7 +111,7 @@ public class MemberMenu {
                 return null;
             }
 
-            System.out.printf("- 아이디: ");
+            System.out.print("- 아이디: ");
             String id = sc.next();
 
             if (!mc.checkId(id)) {
@@ -107,7 +130,7 @@ public class MemberMenu {
     //성별을 정확히 입력받아 리턴하는 메서드
     private char inputGender() {
         while (true) {
-            System.out.printf("- 성별(M/F): ");
+            System.out.print("- 성별(M/F): ");
             // toUpperCase(): 문자열을 전부 대문자로 변환
             // charAt(index): 문자열의 index번 문자 1개를 char타입으로 반환
             char gender = sc.next().toUpperCase().charAt(0);
