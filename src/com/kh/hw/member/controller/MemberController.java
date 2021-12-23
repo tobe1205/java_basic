@@ -11,6 +11,13 @@ public class MemberController {
         m[0] = new Member("abc", "김철수", "1234", "abc@naver.com", 'M', 24);
         m[1] = new Member("def", "박영희", "4321", "def@naver.com", 'F', 32);
         m[2] = new Member("ghi", "김철수", "6544", "ghi@naver.com", 'M', 44);
+        /*m[3] = new Member("jkl", "김철수", "1234", "ddd@naver.com", 'M', 24);
+        m[4] = new Member("mno", "박영희", "4321", "sss@naver.com", 'F', 32);
+        m[5] = new Member("pqr", "홍길동", "1111", "bbb@naver.com", 'M', 44);
+        m[6] = new Member("stu", "임꺽정", "2222", "www@naver.com", 'M', 44);
+        m[7] = new Member("vwx", "호랭이", "3333", "yyy@naver.com", 'M', 44);
+        m[8] = new Member("yza", "개구리", "4444", "zzz@naver.com", 'M', 44);
+        m[9] = new Member("bcd", "고양이", "5555", "xxx@naver.com", 'M', 44);*/
     }
 
     /**
@@ -61,8 +68,23 @@ public class MemberController {
      */
     public Member searchId(String inputId) {
         for (Member member : m) {
-            if (member == null) break;
+            if (member == null) {
+                break;
+            }
             if (inputId.equals(member.getId())) {
+                return member;
+            }
+        }
+        return null;
+    }
+
+    //이메일을 입력하면 해당 회원 객체 리턴
+    public Member searchEmail(String inputEmail) {
+        for (Member member : m) {
+            if (member == null) {
+                break;
+            }
+            if (inputEmail.equals(member.getEmail())) {
                 return member;
             }
         }
@@ -80,11 +102,11 @@ public class MemberController {
                 foundMembers[count++] = member;
             }
         }
-        Member[] retrunMembers = new Member[count];
+        Member[] returnMembers = new Member[count];
         for (int i = 0; i < count; i++) {
-            retrunMembers[i] = foundMembers[i];
+            returnMembers[i] = foundMembers[i];
         }
-        return retrunMembers;
+        return returnMembers;
     }
 
     /**
@@ -97,9 +119,11 @@ public class MemberController {
     public boolean updatePassword(String id, String newPassword) {
         Member member = searchId(id);
         if (member != null) {
+            System.out.println("수정이 성공적으로 완료 되었습니다.");
             member.setPassword(newPassword);
             return true;
         } else {
+            System.out.println("존재하지 않는 아이디입니다.");
             return false;
         }
     }
@@ -107,9 +131,11 @@ public class MemberController {
     public boolean updateName(String id, String newName) {
         Member member = searchId(id);
         if (member != null) {
+            System.out.println("수정이 성공적으로 완료 되었습니다.");
             member.setName(newName);
             return true;
         } else {
+            System.out.println("존재하지 않는 아이디입니다.");
             return false;
         }
     }
@@ -117,9 +143,11 @@ public class MemberController {
     public boolean updateEmail(String id, String newEmail) {
         Member member = searchId(id);
         if (member != null) {
-            member.setName(newEmail);
+            System.out.println("수정이 성공적으로 완료 되었습니다.");
+            member.setEmail(newEmail);
             return true;
         } else {
+            System.out.println("존재하지 않는 아이디입니다.");
             return false;
         }
     }
