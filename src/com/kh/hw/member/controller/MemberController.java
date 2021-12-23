@@ -98,7 +98,7 @@ public class MemberController {
         int count = 0;
         for (Member member : m) {
             if (member == null) break;
-            if (name.equals(member.getId())) {
+            if (name.equals(member.getName())) {
                 foundMembers[count++] = member;
             }
         }

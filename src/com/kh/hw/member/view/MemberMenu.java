@@ -137,7 +137,7 @@ public class MemberMenu {
                 searchId();
                 break;
             case 2:
-//                searchName();
+                searchName();
                 break;
             case 3:
                 searchEmail();
