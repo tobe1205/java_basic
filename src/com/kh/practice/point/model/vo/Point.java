@@ -1,6 +1,10 @@
 package com.kh.practice.point.model.vo;
 
+import java.util.Scanner;
+
 public class Point {
+
+    Scanner sc = new Scanner(System.in);
 
     private int x;
     private int y;
@@ -28,6 +32,7 @@ public class Point {
     public void setY(int y) {
         this.y = y;
     }
+
 
 }
 

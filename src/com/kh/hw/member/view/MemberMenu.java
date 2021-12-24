@@ -276,7 +276,7 @@ public class MemberMenu {
     }
 
     private void deleteAll() {
-        System.out.println("정말 삭제하시겠습니까? Y/N");
+        System.out.println("정말 삭제하시겠습니까? [Y/N]");
         char choice = sc.next().toUpperCase().charAt(0);
 
         if (choice == 'Y'|| choice =='y'){
@@ -292,7 +292,7 @@ public class MemberMenu {
         String id = sc.next();
 
         if (mc.checkId(id)){
-            System.out.println("정말 삭제하시겠습니까? Y/N");
+            System.out.println("정말 삭제하시겠습니까? [Y/N]");
             char choice = sc.next().toUpperCase().charAt(0);
 
             if (choice == 'Y'|| choice =='y'){
