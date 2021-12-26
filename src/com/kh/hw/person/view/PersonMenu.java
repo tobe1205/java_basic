@@ -111,11 +111,11 @@ public class PersonMenu {
             if (s[i] != null) {
                 System.out.println(
                         s[i].getName() + ", "
-                                + s[i].getAge() + ", "
-                                + s[i].getHeight() + ", "
-                                + s[i].getWeight() + ", "
-                                + s[i].getGrade() + ", "
-                                + s[i].getMajor());
+                        + s[i].getAge() + ", "
+                        + s[i].getHeight() + ", "
+                        + s[i].getWeight() + ", "
+                        + s[i].getGrade() + ", "
+                        + s[i].getMajor());
             }
         }
         System.out.println("======================");
@@ -191,12 +191,12 @@ public class PersonMenu {
         for (int i = 0; i < e.length; i++) {
             if (e[i] != null) {
                 System.out.println(
-						e[i].getName()+", "
-						+e[i].getAge()+", "
-						+e[i].getHeight()+", "
-						+e[i].getWeight()+", "
-						+e[i].getSalary()+", "
-						+e[i].getDept());
+                        e[i].getName() + ", "
+                        + e[i].getAge() + ", "
+                        + e[i].getHeight() + ", "
+                        + e[i].getWeight() + ", "
+                        + e[i].getSalary() + ", "
+                        + e[i].getDept());
             }
         }
         System.out.println("======================");
