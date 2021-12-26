@@ -5,6 +5,9 @@ public class Rectangle extends Point{
     private int width;
     private int height;
 
+    public Rectangle() {
+
+    }
 
     public Rectangle(int x, int y, int width, int height) {
         super(x, y);
@@ -12,9 +15,7 @@ public class Rectangle extends Point{
         this.height = height;
     }
 
-    public Rectangle() {
 
-    }
 
     public int getWidth() {
         return width;

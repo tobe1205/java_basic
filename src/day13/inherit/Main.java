@@ -2,7 +2,7 @@ package day13.inherit;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static <String> void main(String[] args) {
 
         Warrior w = new Warrior("키보드워리어");
         w.rage = 60;

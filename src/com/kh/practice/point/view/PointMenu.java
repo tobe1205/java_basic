@@ -11,7 +11,7 @@ public class PointMenu {
     CircleController cc = new CircleController();
     RectangleController rc = new RectangleController();
 
-    public void mainMenu(){
+    public void mainMenu() {
         while (true) {
             System.out.println("===== 메뉴 =====");
             System.out.println("1. 원");
@@ -63,19 +63,8 @@ public class PointMenu {
 
         }
     }
-//원 둘레 구하는 함수
-    private void calcArea() {
-        System.out.print("x 좌표 : ");
-        int inputX = sc.nextInt();
-        System.out.print("y 좌표 : ");
-        int inputY = sc.nextInt();
-        System.out.print("반지름 : ");
-        int inputRadius = sc.nextInt();
-        String print = cc.calcArea(inputX,inputY,inputRadius);
-        System.out.println(print);
 
-    }
-//원 넓이 구하는 함수
+    //원 둘레 구하는 함수
     private void calcCircum() {
         System.out.print("x 좌표 : ");
         int inputX = sc.nextInt();
@@ -83,10 +72,24 @@ public class PointMenu {
         int inputY = sc.nextInt();
         System.out.print("반지름 : ");
         int inputRadius = sc.nextInt();
-        String print = cc.calcCircum(inputX,inputY,inputRadius);
+        String print = cc.calcCircum(inputX, inputY, inputRadius);
         System.out.println(print);
 
     }
+
+    //원 넓이 구하는 함수
+    private void calcArea() {
+        System.out.print("x 좌표 : ");
+        int inputX = sc.nextInt();
+        System.out.print("y 좌표 : ");
+        int inputY = sc.nextInt();
+        System.out.print("반지름 : ");
+        int inputRadius = sc.nextInt();
+        String print = cc.calcArea(inputX, inputY, inputRadius);
+        System.out.println(print);
+
+    }
+
 
     private void rectangleMenu() {
         System.out.println("===== 사각형 메뉴 =====");
@@ -122,7 +125,7 @@ public class PointMenu {
         int inputHeight = sc.nextInt();
         System.out.print("너비 : ");
         int inputWidth = sc.nextInt();
-        String print = rc.calcPerimeter(inputX,inputY,inputHeight,inputWidth);
+        String print = rc.calcPerimeter(inputX, inputY, inputHeight, inputWidth);
         System.out.println(print);
     }
 
@@ -135,7 +138,7 @@ public class PointMenu {
         int inputHeight = sc.nextInt();
         System.out.print("너비 : ");
         int inputWidth = sc.nextInt();
-        String print = rc.calcArea(inputX,inputY,inputHeight,inputWidth);
+        String print = rc.calcArea(inputX, inputY, inputHeight, inputWidth);
         System.out.println(print);
     }
 
