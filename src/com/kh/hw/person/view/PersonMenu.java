@@ -105,20 +105,15 @@ public class PersonMenu {
     }
 
     private void printStudent() {
+
         Student[] s = pc.printStudent();
-        System.out.println("======================");
-        for (int i = 0; i < s.length; i++) {
+        System.out.println("==================================");
+        for (int i = 0; i < s.length ; i++) {
             if (s[i] != null) {
-                System.out.println(
-                        s[i].getName() + ", "
-                        + s[i].getAge() + ", "
-                        + s[i].getHeight() + ", "
-                        + s[i].getWeight() + ", "
-                        + s[i].getGrade() + ", "
-                        + s[i].getMajor());
+                System.out.println(s[i].toString());
             }
         }
-        System.out.println("======================");
+        System.out.println("==================================");
     }
 
     private void employeeMenu() {
@@ -186,7 +181,16 @@ public class PersonMenu {
     }
 
     private void printEmployee() {
+
         Employee[] e = pc.printEmployee();
+        System.out.println("==================================");
+        for (int i = 0; i < e.length ; i++) {
+            if (e[i] != null) {
+                System.out.println(e[i].toString());
+            }
+        }
+        System.out.println("==================================");
+        /*Employee[] e = pc.printEmployee();
         System.out.println("======================");
         for (int i = 0; i < e.length; i++) {
             if (e[i] != null) {
@@ -199,6 +203,6 @@ public class PersonMenu {
                         + e[i].getDept());
             }
         }
-        System.out.println("======================");
+        System.out.println("======================");*/
     }
 }
