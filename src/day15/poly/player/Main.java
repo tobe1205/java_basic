@@ -16,5 +16,8 @@ public class Main {
         m.blizzard(w,h);
         m.blizzard(h,m,new Mage("불꽃마법사"), new Hunter("수렵왕"));
 
+
+        w.fireRush(m);
+        w.fireRush(h);
     }
 }
