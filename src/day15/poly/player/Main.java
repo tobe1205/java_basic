@@ -19,5 +19,6 @@ public class Main {
 
         w.fireRush(m);
         w.fireRush(h);
+
     }
 }
