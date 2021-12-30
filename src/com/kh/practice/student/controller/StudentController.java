@@ -15,6 +15,7 @@ public class StudentController {
         sArr[4] = new Student("홍길동", "자바", 20);
     }
 
+
     public Student[] printStudent() {
         return sArr;
     }
