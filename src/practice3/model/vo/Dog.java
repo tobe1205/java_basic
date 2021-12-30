@@ -15,7 +15,7 @@ public class Dog extends Animal {
 
     @Override
     public void speak() {
-        System.out.println(this.toString()+ " 몸무게는 " + weight + "kg 입니다.");
+        System.out.println(super.toString()+ " 몸무게는 " + weight + "kg 입니다.");
 
     }
 

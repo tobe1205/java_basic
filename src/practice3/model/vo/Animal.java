@@ -5,10 +5,10 @@ public abstract class Animal {
     private String name;
     private String kinds;
 
-    public Animal() {
+    protected Animal() {
     }
 
-    public Animal(String name, String kind) {
+    protected Animal(String name, String kind) {
         this.name = name;
         this.kinds = kind;
     }

@@ -9,21 +9,16 @@ public class AnimalManager {
 
         Animal[] animals = new Animal[5];
 
-        Cat c = new Cat("야옹이","페르시안고양이","한국","갈색");
-        Dog d = new Dog("뿌꾸","닥스훈트",4);
-        Dog dog = new Dog("갑돌이","진돗개",3);
-        Cat cat = new Cat("나비","페르시안고양이","미국","검은색");
-        Dog dog1 = new Dog("뿌꾸","닥스훈트",4);
 
-        animals[0] = c;
-        animals[1] = d;
-        animals[2] = dog;
-        animals[3] = cat;
-        animals[4] = dog1;
+        animals[0] = new Cat("야옹이","페르시안고양이","한국","갈색");
+        animals[1] = new Dog("뿌꾸","닥스훈트",4);
+        animals[2] = new Dog("갑돌이","진돗개",3);
+        animals[3] = new Cat("나비","페르시안고양이","미국","검은색");
+        animals[4] = new Dog("뿌꾸","닥스훈트",4);
 
 
-        for (int i = 0; i < animals.length; i++) {
-            animals[i].speak();
+        for (Animal a : animals) {
+            a.speak();
+        }
         }
     }
-}

@@ -1,6 +1,6 @@
 package practice3.model.vo;
 
-public class Cat extends Animal{
+public class Cat extends Animal {
 
     private String location;
     private String color;
@@ -8,10 +8,9 @@ public class Cat extends Animal{
     public Cat() {
     }
 
-
     @Override
     public void speak() {
-        System.out.println(this.toString()+ location + " 에 서식하며, 색상은 " + color + "입니다.");
+        System.out.println(super.toString() + location + "에 서식하며, 색상은 " + color + "입니다.");
 
     }
 
