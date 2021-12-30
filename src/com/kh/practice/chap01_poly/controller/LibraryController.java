@@ -59,6 +59,7 @@ public class LibraryController {
         return searched;
     }
 
+
     //책 빌리는 기능
     public int rentBook(int index) {
         Book book = bList[index];

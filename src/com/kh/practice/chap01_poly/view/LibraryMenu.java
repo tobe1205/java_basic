@@ -90,6 +90,7 @@ public class LibraryMenu {
         int rendNum = sc.nextInt();
         int result = lc.rentBook(rendNum - 1);
 
+
         switch (result) {
             case RENT_SUCCESS:
                 System.out.println("대여 성공");
