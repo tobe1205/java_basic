@@ -28,7 +28,6 @@ public class Person {
     }
 
     public String getEmpNum() {
-        if (empNum)
         return empNum;
     }
 
