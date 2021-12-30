@@ -41,6 +41,7 @@ public class LibraryController {
         return bList;
     }
 
+    // 키워드가 들어가있는 책제목 조회 기능
     public Book[] searchBook(String keyword) {
 
         Book[] temp = new Book[bList.length];
@@ -71,7 +72,7 @@ public class LibraryController {
             if (cookBook.isCoupon()) {
                 mem.setCouponCount(mem.getCouponCount() + 1);
                 return RENT_SUCCESS_WITH_COUPON;
-            }else {
+            } else {
                 return RENT_SUCCESS;
             }
         }

@@ -6,6 +6,8 @@ import com.kh.practice.chap01_poly.model.vo.Member;
 
 import java.util.Scanner;
 
+import static com.kh.practice.chap01_poly.controller.LibraryController.*;
+
 public class LibraryMenu {
 
     private LibraryController lc = new LibraryController();
@@ -56,6 +58,7 @@ public class LibraryMenu {
             }
         }
     }
+
     //도서 전체 조회
     private void selectAll() {
         Book[] books = lc.selectAll();
@@ -63,31 +66,42 @@ public class LibraryMenu {
             System.out.printf("%d번째 도서: %s\n", i + 1, books[i].toString());
         }
     }
+
     //도서 검색
     private void searchBook() {
         System.out.print("검색할 제목 키워드: ");
         String keyword = sc.next();
         Book[] searchBook = lc.searchBook(keyword);
-        for (Book b : searchBook) {
-            System.out.println(b.toString());
+        if (searchBook.length == 0) {
+            System.out.println("# 검색된 도서가 없습니다.");
+        } else {
+            System.out.printf("\n========검색 결과(검색어 : %s)=======\n", keyword);
+            for (Book b : searchBook) {
+                System.out.println(b.toString());
+            }
         }
     }
+
     //도서 대여하기
     private void rentBook() {
+        System.out.println("========= 대여 도서 목록 ========= ");
         selectAll();
         System.out.print("대여할 도서 번호 선택: ");
         int rendNum = sc.nextInt();
-        int rentBook = lc.rentBook(rendNum);
+        int result = lc.rentBook(rendNum - 1);
 
-        switch (rentBook) {
-            case LibraryController.RENT_SUCCESS:
+        switch (result) {
+            case RENT_SUCCESS:
                 System.out.println("대여 성공");
                 break;
-            case LibraryController.RENT_SUCCESS_WITH_COUPON:
+            case RENT_SUCCESS_WITH_COUPON:
                 System.out.println("대여성공! 쿠폰 발급!!");
+                System.out.println("요리학원 쿠폰이 발급되었으니" +
+                        "마이페이지에서 확인하세요!");
                 break;
-            default:
+            case RENT_FAIL:
                 System.out.println("대여 실패!!!");
+                break;
         }
     }
 }
