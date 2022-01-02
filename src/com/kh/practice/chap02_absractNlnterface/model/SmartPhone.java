@@ -8,12 +8,10 @@ public abstract class SmartPhone implements TouchDisplay,CellPhone {
     public SmartPhone() {
     }
 
-    public String printInformation(){
-        return null;
-    }
+    public abstract String printInformation();
 
     public String getMaker() {
-        return maker;
+        return this.maker;
     }
 
     public void setMaker(String maker) {
