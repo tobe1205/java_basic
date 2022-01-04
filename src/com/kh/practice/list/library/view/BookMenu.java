@@ -85,7 +85,7 @@ public class BookMenu {
     private void selectList() {
         ArrayList books = bc.selectList();
         for (int i = 0; i < books.size() ; i++) {
-            System.out.printf("%d번째 도서: %s\n", i + 1, books.get(i).toString());
+            System.out.printf("%d번째 도서: %s\n", i + 1, books.get(i));
         }
     }
 
