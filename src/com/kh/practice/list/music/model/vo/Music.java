@@ -1,7 +1,5 @@
 package com.kh.practice.list.music.model.vo;
 
-import com.kh.practice.list.music.model.compare.AscTitle;
-
 import java.util.Objects;
 
 public class Music implements Comparable<Music> {
@@ -46,15 +44,16 @@ public class Music implements Comparable<Music> {
         return Objects.hash(title, singer);
     }
 
-    public int compareTo(Music m){
-        //제목비교
-        //비교대상1
-        String m1 = this.title;
-        //비교대상2
-        String m2 = m.title;
+    @Override
+    public String toString() {
+        return "Music{" +
+                "title='" + title + '\'' +
+                ", singer='" + singer + '\'' +
+                '}';
+    }
 
-        if (m1.equals(m2)) return 0;
-        else if (m1.compareTo(m2) >= 1) return 1;
-        else return -1;
+    @Override
+    public int compareTo(Music m) {
+        return 0;
     }
 }

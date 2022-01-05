@@ -1,63 +1,62 @@
 package com.kh.practice.list.music.controller;
 
-
+import com.kh.practice.list.music.model.compare.AscTitle;
+import com.kh.practice.list.music.model.compare.DescSinger;
 import com.kh.practice.list.music.model.vo.Music;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class MusicController {
 
-    private List<Music> list = new ArrayList<>();
+    private static final List<Music> musicList = new ArrayList<>();
+
+    public MusicController() {
+        musicList.add(new Music("Gee", "소녀시대"));
+        musicList.add(new Music("Black Mamba", "aespa"));
+        musicList.add(new Music("링딩동", "샤이니"));
+    }
 
     public int addList(Music music) {
-        list.set(list.size() - 1, music);
+        musicList.add(music);
         return 1;
     }
-
     public int addAtZero(Music music) {
-        list.set(0, music);
+        musicList.add(0, music);
         return 1;
     }
-
     public List<Music> printAll() {
-        return list;
+        return musicList;
     }
-
     public Music searchMusic(String title) {
-        for (Music music : list) {
+        for (Music music : musicList) {
             if (music.getTitle().equals(title)) {
                 return music;
             }
         }
         return null;
     }
-
     public Music removeMusic(String title) {
-        for (Music music : list) {
-            if (music.getTitle().equals(title)) {
-                list.remove(music);
-            }
+        Music searchMusic = searchMusic(title);
+        if (searchMusic != null) {
+            musicList.remove(searchMusic);
         }
-        return null;
+        return searchMusic;
     }
-
     public Music setMusic(String title, Music music) {
-        for (Music m : list) {
-            if (m.getTitle().equals(title)) {
-                int index = list.indexOf(m);
-                list.set(index, music);
-            }
+        Music searchMusic = searchMusic(title);
+        if (searchMusic != null) {
+            musicList.set(musicList.indexOf(searchMusic), music);
         }
-        return null;
+        return searchMusic;
     }
-
     public int ascTitle() {
-        list.sort(Music::compareTo);
+        Collections.sort(musicList, new AscTitle());
         return 1;
     }
-
     public int descSinger() {
-        list.sort(Comparator.reverseOrder());
+        Collections.sort(musicList, new DescSinger().reversed());
         return 1;
     }
 }
