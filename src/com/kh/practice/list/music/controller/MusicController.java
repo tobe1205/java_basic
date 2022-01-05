@@ -10,12 +10,18 @@ public class MusicController {
     private List<Music> list = new ArrayList<>();
 
     public int addList(Music music) {
-        list.set(list.size() - 1, music);
+        int size = list.size();
+        if(size == 0){
+            size = 1;
+            list.add(size - 1, music);
+            return 1;
+        }
+        list.add(size - 1, music);
         return 1;
     }
 
     public int addAtZero(Music music) {
-        list.set(0, music);
+        list.add(0, music);
         return 1;
     }
 
