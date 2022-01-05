@@ -6,11 +6,7 @@ public class Run {
 
 
     public static void main(String[] args) {
+        new BookMenu();
 
-        BookMenu bm = new BookMenu();
-
-        System.out.println("== Welcome GW Library =====\n");
-
-        bm.mainMenu();
     }
 }
