@@ -46,7 +46,7 @@ public class MainClass {
     }
 
     public static void showMenu() {
-        System.out.println("\n\n\n*** 음악 관리 프로그램 ***");
+        System.out.println("\n\n*** 음악 관리 프로그램 ***");
         System.out.printf("# [현재 등록된 가수: %d명]\n", artists.size());
         System.out.println("# 1. 노래 등록하기");
         System.out.println("# 2. 노래 정보 검색");
@@ -76,6 +76,20 @@ public class MainClass {
         String artist = sc.nextLine();
         System.out.print("- 곡명: ");
         String song = sc.nextLine();
+        songs = new HashSet<>();
+        if(artists.containsKey(artist) && artists.get(artist).contains(song)){
+            System.out.println("# 이미 등록된 노래입니다.");
+            return;
+        }
+        if(!artists.containsKey(artist)){
+            System.out.printf("# 아티스트 [%s]님이 신규등록되었습니다.",artist);
+            songs.add(song);
+            artists.put(artist,songs);
+        }else{
+            System.out.printf("# 아티스트 [%s]님의 노래목록에 [%s]이(가) 추가되었습니다.",artist,song);
+            songs = artists.get(artist);
+            songs.add(song);
+        }
 
 		/*
 		 1. 가수명이 중복되었는지 확인 후 신규 가수 등록이라면
@@ -96,6 +110,12 @@ public class MainClass {
         System.out.print("- 가수명: ");
         sc.nextLine();
         String artist = sc.nextLine();
+        if (artists.containsKey(artist)){
+            System.out.printf("* [%s]님의 노래목록 *\n",artist);
+            System.out.println(artists.get(artist));
+        } else{
+            System.out.println("해당 아티스트는 등록되지 않았습니다.");
+        }
 
 		/*
 		 1. 가수명을 입력받아 해당 가수명에 매핑되어 저장되어있는 Set컬렉션을
@@ -104,7 +124,6 @@ public class MainClass {
 		      [abc, def, ghi, jkl ...]
 		 2. 등록된 가수가 아니라면 "해당 아티스트는 등록되지 않았습니다."를 출력.
 		 */
-
 
     }
 
@@ -159,7 +178,6 @@ public class MainClass {
         }
 
     }
-
 
 }
 
