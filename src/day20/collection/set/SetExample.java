@@ -31,6 +31,7 @@ public class SetExample {
             System.out.println(s);
         }
 
+
         // remove(obj) : set 객체 삭제
         set.remove("단무지");
         System.out.println(set);
