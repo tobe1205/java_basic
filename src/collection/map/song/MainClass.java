@@ -91,6 +91,7 @@ public class MainClass {
             songs.add(song);
         }
 
+
 		/*
 		 1. 가수명이 중복되었는지 확인 후 신규 가수 등록이라면
 		 "# 아티스트 xxx님이 신규등록되었습니다."를 출력 후 해당 곡명과 함께
