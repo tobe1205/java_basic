@@ -40,9 +40,7 @@ public class MainClass {
                 default:
                     System.out.println("메뉴를 잘못 입력했습니다.");
             }
-
         }
-
     }
 
     public static void showMenu() {
@@ -90,7 +88,6 @@ public class MainClass {
             songs = artists.get(artist);
             songs.add(song);
         }
-
 
 		/*
 		 1. 가수명이 중복되었는지 확인 후 신규 가수 등록이라면
@@ -154,7 +151,6 @@ public class MainClass {
         } finally {
             if(oos != null) try {oos.close();}catch(Exception e) {}
         }
-
     }
 
     //파일에 저장된 정보를 불러오는 메서드.
@@ -177,7 +173,5 @@ public class MainClass {
         } finally {
             if(ois != null) try {ois.close();}catch(Exception e) {}
         }
-
     }
-
 }
