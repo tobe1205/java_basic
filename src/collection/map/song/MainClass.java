@@ -74,7 +74,7 @@ public class MainClass {
         String artist = sc.nextLine();
         System.out.print("- 곡명: ");
         String song = sc.nextLine();
-        songs = new HashSet<>();
+        Set<String> songs = new HashSet<>();
         if(artists.containsKey(artist) && artists.get(artist).contains(song)){
             System.out.println("# 이미 등록된 노래입니다.");
             return;
@@ -85,8 +85,8 @@ public class MainClass {
             artists.put(artist,songs);
         }else{
             System.out.printf("# 아티스트 [%s]님의 노래목록에 [%s]이(가) 추가되었습니다.",artist,song);
-            songs = artists.get(artist);
-            songs.add(song);
+            Set<String> songList = artists.get(artist);
+            songList.add(song);
         }
 
 		/*
