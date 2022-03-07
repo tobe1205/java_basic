@@ -17,7 +17,7 @@ public class BookMenu {
     }
 
     private String input(String msg) {
-        System.out.printf(msg);
+        System.out.print(msg);
         return sc.nextLine();
     }
 

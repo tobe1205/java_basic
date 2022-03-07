@@ -9,7 +9,8 @@ public class BookController {
 
     private List<Book> bookList = new ArrayList<>();
 
-    public BookController() {
+    //테스트를 위한 도서 목록 추가가
+   public BookController() {
 
         bookList.add(new Book("자바의 정석", "남궁 성", "기타", 20000));
         bookList.add(new Book("쉽게 배우는 알고리즘", "문병로", "기타", 15000));
@@ -17,13 +18,15 @@ public class BookController {
         bookList.add(new Book("암 정복기", "박신우", "의료", 21000));
 
     }
-
+    // 새 도서 추가
     public void insertBook(Book bk) {
         bookList.add(bk);
-    }
+
+    } // 전체 도서목록 조회 메서드
     public ArrayList<Book> selectList() {
         return (ArrayList<Book>) bookList;
-    }
+
+    } // 키워드를 이용한 도서 조회 메서드
     public ArrayList<Book> searchBook(String keyword) {
         //검색결과 리스트 생성
         ArrayList<Book> searchList = new ArrayList<>();
@@ -35,7 +38,7 @@ public class BookController {
             }
         }
         return searchList;
-    }
+    } //도서 삭제 메서드
     public Book deleteBook(String title, String author) {
         //삭제될 도서를 담을 변수
         Book removeBook = null;
@@ -47,7 +50,7 @@ public class BookController {
             }
         }
         return removeBook;
-    }
+    } //오름차순 정렬
     public int ascBook() {
         bookList.sort(Book::compareTo);
         return 1;
